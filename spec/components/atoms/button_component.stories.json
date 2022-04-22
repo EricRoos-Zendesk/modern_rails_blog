@@ -1,0 +1,13 @@
+{
+  "title": "Atoms/Button Component",
+  "stories": [
+    {
+      "name": "primary_button",
+      "parameters": {
+        "server": {
+          "id": "atoms/button_component/primary_button"
+        }
+      }
+    }
+  ]
+}

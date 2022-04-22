@@ -1,0 +1,10 @@
+{
+  "name": "modern_rails_blog",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "@storybook/addon-controls": "^6.4.22",
+    "@storybook/server": "^6.4.22"
+  }
+}

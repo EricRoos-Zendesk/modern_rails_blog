@@ -3,8 +3,8 @@ RUN apt-get update -qq && apt-get install -y nodejs postgresql-client
 WORKDIR /modern_rails_blog
 COPY Gemfile /modern_rails_blog/Gemfile
 COPY Gemfile.lock /modern_rails_blog/Gemfile.lock
-RUN bundle config set force_ruby_platform true
 RUN bundle install
+RUN gem install foreman
 
 # Add a script to be executed every time the container starts.
 COPY entrypoint.sh /usr/bin/

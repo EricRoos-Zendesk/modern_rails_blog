@@ -95,6 +95,8 @@ GEM
       http_parser.rb (~> 0)
     erubi (1.10.0)
     eventmachine (1.2.7)
+    faker (2.20.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     formatador (1.1.0)
     globalid (1.0.0)
@@ -285,6 +287,7 @@ DEPENDENCIES
   bootsnap
   capybara
   debug
+  faker
   guard
   guard-livereload (~> 2.5)
   guard-rails

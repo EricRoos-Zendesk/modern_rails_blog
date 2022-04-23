@@ -11,3 +11,7 @@
 }
 
 */
+
+body, .sb-show-main {
+  @apply bg-gray-100;
+}

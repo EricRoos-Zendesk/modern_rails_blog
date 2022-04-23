@@ -1,0 +1,29 @@
+{
+  "title": "Atoms/Link Component",
+  "stories": [
+    {
+      "name": "text_link",
+      "parameters": {
+        "server": {
+          "id": "atoms/link_component/text_link"
+        }
+      }
+    },
+    {
+      "name": "big_text_link",
+      "parameters": {
+        "server": {
+          "id": "atoms/link_component/big_text_link"
+        }
+      }
+    },
+    {
+      "name": "button_link",
+      "parameters": {
+        "server": {
+          "id": "atoms/link_component/button_link"
+        }
+      }
+    }
+  ]
+}

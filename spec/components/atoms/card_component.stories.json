@@ -1,0 +1,13 @@
+{
+  "title": "Atoms/Card Component",
+  "stories": [
+    {
+      "name": "basic_card",
+      "parameters": {
+        "server": {
+          "id": "atoms/card_component/basic_card"
+        }
+      }
+    }
+  ]
+}

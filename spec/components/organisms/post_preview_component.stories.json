@@ -1,0 +1,13 @@
+{
+  "title": "Organisms/Post Preview Component",
+  "stories": [
+    {
+      "name": "profile_card",
+      "parameters": {
+        "server": {
+          "id": "organisms/post_preview_component/profile_card"
+        }
+      }
+    }
+  ]
+}

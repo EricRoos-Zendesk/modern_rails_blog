@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def show
     respond_to do |format|
       format.html do
-        render Pages::PostPageComponent.new(post: @post.first)
+        render Pages::PostPageComponent.new(post: @post)
       end
       format.turbo_stream
     end

@@ -78,5 +78,3 @@ Rails.application.configure do
   #config.file_watcher = ActiveSupport::FileUpdateChecker
   config.action_controller.asset_host =  'http://0.0.0.0:3000'
 end
-
-ActiveRecord::Base.connection.enable_query_cache!

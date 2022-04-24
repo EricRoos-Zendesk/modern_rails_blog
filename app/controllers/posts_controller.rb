@@ -10,7 +10,9 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     respond_to do |format|
-      format.html { render Pages::PostPageComponent.new(post: @post) }
+      format.html do
+        render Pages::PostPageComponent.new(post: @post.first)
+      end
       format.turbo_stream
     end
   end
@@ -65,7 +67,9 @@ class PostsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Post.find(params[:id])
+      @post = Rails.cache.fetch([:post, params[:id], Post.updated_at_for(params[:id])]) do
+        @post = Post.find(params[:id])
+      end
     end
 
     # Only allow a list of trusted parameters through.

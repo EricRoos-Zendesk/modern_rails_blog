@@ -24,6 +24,7 @@ class PostsController < ApplicationController
 
   # GET /posts/1/edit
   def edit
+    render Pages::EditPostPageComponent.new(post: @post)
   end
 
   # POST /posts or /posts.json

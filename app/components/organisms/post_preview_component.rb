@@ -15,4 +15,8 @@ class Organisms::PostPreviewComponent < ViewComponent::Base
       author_image_url: "https://en.gravatar.com/userimage/211132844/96462fd3129d42607451fb63e0612620.jpeg",
       &block)
   end
+
+  def preview_length
+    500
+  end
 end

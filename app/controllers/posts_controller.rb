@@ -3,7 +3,7 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all.select(:id)
+    @posts = Post.all.select(:id).order(posted_at: :desc)
     render Pages::PostsPageComponent.new(posts: @posts)
   end
 
@@ -70,6 +70,6 @@ class PostsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def post_params
-      params.require(:post).permit(:title)
+      params.require(:post).permit(:title, :content)
     end
 end

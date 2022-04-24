@@ -7,7 +7,7 @@ class Organisms::PostPreviewComponent < ViewComponent::Base
 
   def init_preview_card(&block)
     Molecules::PostPreviewCardComponent.new(
-      post_date: @post.created_at.to_date,
+      post_date: @post.posted_at.to_date,
       post_title: @post.title,
       preview_content: "",
       read_more_href: url_for(@post),

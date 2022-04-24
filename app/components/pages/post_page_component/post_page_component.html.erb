@@ -1,32 +1,6 @@
 <%= render Templates::TwoColumnComponent.new do |page_template| %>
   <%= page_template.main_content do %>
-    <%= render Atoms::CardComponent.new do %>
-      <div class="flex items-center justify-between">
-        <span class="font-light text-gray-600"><%= @post.posted_at.to_date  %></span>
-        <a href="#" class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">Laravel</a>
-      </div>
-      <div class="mt-2">
-        <div class="text-2xl font-bold text-gray-700 hover:underline">
-          <%= @post.title %>
-        </div>
-        <div class="flex items-center justify-between mt-4">
-          <div>
-            <a href="#" class="flex items-center">
-              <img src="<%= @author_image_url %>" alt="avatar" class="hidden object-cover w-10 h-10 mx-4 rounded-full sm:block">
-              <h1 class="font-bold text-gray-700 hover:underline"><%= @author_name %></h1>
-            </a>
-          </div>
-        </div>
-        <div class="mt-2 text-gray-600">
-          <%= @post.content %>
-        </div>
-      </div>
-      <%= link_to 'Edit this post', edit_post_path(@post), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      <div class="inline-block ml-2">
-        <%= button_to 'Destroy this post', post_path(@post), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium", data: { 'turbo': false } %>
-      </div>
-      <%= link_to 'Back to posts', posts_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <% end %>
+    <%= render Organisms::PostComponent.new(post: @post) %> 
   <% end %>
 
   <%= page_template.side_content do %>

@@ -12,6 +12,8 @@
     <% @posts.each do |post| %>
       <div class='invisible min-h-[200px] mt-6' data-controller='delayed-visibility' data-post-id="<%= post.id %>">
         <turbo-frame loading="lazy" id="<%=dom_id(post) %>" src="<%=post_path(post, format: :turbo_stream)%>" class='hidden' data-delayed-visibility-target='frame'>
+          <%= render init_loading_preview %>
+        </turbo-frame>
       </div>
     <% end %>
   <% end %>

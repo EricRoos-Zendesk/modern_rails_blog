@@ -1,0 +1,13 @@
+{
+  "title": "Templates/Two Column Component",
+  "stories": [
+    {
+      "name": "two_columns",
+      "parameters": {
+        "server": {
+          "id": "templates/two_column_component/two_columns"
+        }
+      }
+    }
+  ]
+}

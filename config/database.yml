@@ -25,7 +25,7 @@ development:
   <<: *default
   database: modern_rails_blog_development
   username: postgres
-  host: db
+  host: <%= ENV.fetch('DB_HOST') { 'db' } %>
   password: password
 
   # The specified database role being used to connect to postgres.

@@ -1,0 +1,12 @@
+<div class='container flex justify-between mx-auto'>
+  <div class='w-full lg:w-8/12'>
+    <% if main_content? %>
+      <%= main_content %>
+    <% end %>
+  </div>
+  <div class='hidden w-4/12 -mx-8 lg:block'>
+    <% if side_content? %>
+      <%= side_content %>
+    <% end %>
+  </div>
+</div>

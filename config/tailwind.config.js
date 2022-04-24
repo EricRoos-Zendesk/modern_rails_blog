@@ -9,10 +9,12 @@ module.exports = {
     './app/components/molecules/**/*.{erb,haml,html,slim,rb}',
     './app/components/organisms/**/*.{erb,haml,html,slim,rb}',
     './app/components/templates/**/*.{erb,haml,html,slim,rb}',
+    './app/components/pages/**/*.{erb,haml,html,slim,rb}',
     './spec/components/atoms/**/*.{erb,haml,html,slim,rb}',
     './spec/components/molecules/**/*.{erb,haml,html,slim,rb}',
     './spec/components/organisms/**/*.{erb,haml,html,slim,rb}',
-    './spec/components/templates/**/*.{erb,haml,html,slim,rb}'
+    './spec/components/templates/**/*.{erb,haml,html,slim,rb}',
+    './spec/components/pages/**/*.{erb,haml,html,slim,rb}'
   ],
   theme: {
     extend: {

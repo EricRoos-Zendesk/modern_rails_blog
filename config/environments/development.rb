@@ -1,11 +1,12 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  config.server_timing = false
   config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
-  config.middleware.insert_before 0, Rack::Cors do
+  Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
       origins '*'
-      resource '/rails/stories/*', :headers => :any, :methods => [:get]
+      resource '*', headers: :any, methods: [:get, :post, :patch, :put]
     end
   end
   # Settings specified here will take precedence over those in config/application.rb.
@@ -22,7 +23,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   # Enable server timing
-  config.server_timing = true
+  #config.server_timing = true
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.

@@ -6,5 +6,9 @@
   "devDependencies": {
     "@storybook/addon-controls": "^6.4.22",
     "@storybook/server": "^6.4.22"
+  },
+  "dependencies": {
+    "@hotwired/turbo-rails": "^7.1.1",
+    "stimulus-use": "^0.41.0"
   }
 }

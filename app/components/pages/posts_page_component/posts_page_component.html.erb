@@ -1,0 +1,21 @@
+<%= render Templates::TwoColumnComponent.new do |page_template| %>
+  <% page_template.main_content do %>
+    <div class="flex items-center justify-between">
+      <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Post</h1>
+      <div>
+        <select class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
+          <option>Latest</option>
+          <option>Last Week</option>
+        </select>
+      </div>
+    </div>
+    <% @posts.each do |post| %>
+      <div class='invisible min-h-[200px] mt-6' data-controller='delayed-visibility' data-post-id="<%= post.id %>">
+        <turbo-frame loading="lazy" id="<%=dom_id(post) %>" src="<%=post_path(post, format: :turbo_stream)%>" class='hidden' data-delayed-visibility-target='frame'>
+      </div>
+    <% end %>
+  <% end %>
+  <% page_template.side_content do %>
+    side
+  <% end %>
+<% end %>

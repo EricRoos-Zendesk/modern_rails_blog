@@ -1,0 +1,5 @@
+<%= cache [:preview, @post] do %>
+  <%= turbo_stream.replace(dom_id(@post)) do %>
+    <%= render Organisms::PostPreviewComponent.new(post: @post) %>
+  <% end %>
+<% end %>

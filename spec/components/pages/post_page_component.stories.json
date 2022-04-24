@@ -1,0 +1,13 @@
+{
+  "title": "Pages/Post Page Component",
+  "stories": [
+    {
+      "name": "post_page",
+      "parameters": {
+        "server": {
+          "id": "pages/post_page_component/post_page"
+        }
+      }
+    }
+  ]
+}

@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     respond_to do |format|
-      format.html
+      format.html { render Pages::PostPageComponent.new(post: @post) }
       format.turbo_stream
     end
   end

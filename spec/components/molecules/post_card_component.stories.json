@@ -1,0 +1,13 @@
+{
+  "title": "Molecules/Post Card Component",
+  "stories": [
+    {
+      "name": "profile_card",
+      "parameters": {
+        "server": {
+          "id": "molecules/post_card_component/profile_card"
+        }
+      }
+    }
+  ]
+}

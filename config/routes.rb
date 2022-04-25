@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :authors, only: [ :index ]
+
   devise_for :users
   resources :posts do
     member do

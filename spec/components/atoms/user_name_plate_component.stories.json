@@ -1,0 +1,13 @@
+{
+  "title": "Atoms/User Name Plate Component",
+  "stories": [
+    {
+      "name": "basic_name_place",
+      "parameters": {
+        "server": {
+          "id": "atoms/user_name_plate_component/basic_name_place"
+        }
+      }
+    }
+  ]
+}

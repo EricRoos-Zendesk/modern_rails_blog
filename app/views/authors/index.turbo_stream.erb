@@ -1,0 +1,3 @@
+<%= turbo_stream.update 'authors' do %>
+  <%= render Organisms::UserListCardComponent.new(users: @authors) %>
+<% end %>

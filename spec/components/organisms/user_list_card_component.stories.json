@@ -1,0 +1,13 @@
+{
+  "title": "Organisms/User List Card Component",
+  "stories": [
+    {
+      "name": "user_list",
+      "parameters": {
+        "server": {
+          "id": "organisms/user_list_card_component/user_list"
+        }
+      }
+    }
+  ]
+}

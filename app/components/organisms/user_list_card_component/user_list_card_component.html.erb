@@ -1,0 +1,9 @@
+<%= render Atoms::CardComponent.new do %>
+  <div class='grid grid-col-1 gap-2 scale-[80%] origin-top-left'>
+    <% @users.each do |user| %>
+      <%= link_to '#' do %>
+        <%= render Atoms::UserNamePlateComponent.new(name: user.email, image_url: Gravatar.src(user.email)) %>
+      <% end %>
+    <% end %>
+  </div>
+<% end %>

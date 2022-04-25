@@ -1,0 +1,13 @@
+{
+  "title": "Templates/Fixed Center Card Component",
+  "stories": [
+    {
+      "name": "two_columns",
+      "parameters": {
+        "server": {
+          "id": "templates/fixed_center_card_component/two_columns"
+        }
+      }
+    }
+  ]
+}

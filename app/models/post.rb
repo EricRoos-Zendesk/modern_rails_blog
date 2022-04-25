@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   has_rich_text :content
+  belongs_to :user
 
   after_commit :update_cached_updated_at
 

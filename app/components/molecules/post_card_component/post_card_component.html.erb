@@ -1,6 +1,6 @@
 <%= render Atoms::CardComponent.new do %>
   <div class="flex items-center justify-between">
-    <span class="font-light text-gray-600"><%= @post_date %></span>
+    <span class="font-light text-gray-600"><%= @post_date.present? ? @post_date : 'N/A'  %></span>
     <a href="#" class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">Laravel</a>
   </div>
   <div class="mt-2">

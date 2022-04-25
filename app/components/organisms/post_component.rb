@@ -7,11 +7,11 @@ class Organisms::PostComponent < ViewComponent::Base
 
   def init_card
     Molecules::PostCardComponent.new(
-      post_date: @post.posted_at.to_date,
+      post_date: @post.posted_at&.to_date,
       post_title: @post.title,
       post_content: @post.content,
-      author_name: "N/A",
-      author_image_url: "https://en.gravatar.com/userimage/211132844/96462fd3129d42607451fb63e0612620.jpeg",
+      author_name: @post.user.email,
+      author_image_url: Gravatar.src(@post.user.email)
     )
   end
 end

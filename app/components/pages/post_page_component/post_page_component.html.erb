@@ -1,6 +1,11 @@
 <%= render Templates::TwoColumnComponent.new do |page_template| %>
   <%= page_template.main_content do %>
-    <%= render Organisms::PostComponent.new(post: @post) %> 
+    <%= render Organisms::PostComponent.new(post: @post) do %> 
+      <div class='mt-5'>
+        <turbo-frame id="<%= "applauds_#{dom_id(@post)}" %>" src="<%=applauds_post_path(@post, format: :turbo_stream)%>">
+        </turbo-frame>
+      </div>
+    <% end %>
   <% end %>
 
   <%= page_template.side_content do %>

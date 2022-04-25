@@ -7,11 +7,8 @@ class Molecules::PostCardComponentStories < ViewComponent::Storybook::Stories
       author_name: Faker::Name.name,
       author_image_url: 'https://en.gravatar.com/userimage/211132844/96462fd3129d42607451fb63e0612620.jpeg'
     ) do
-      content_tag(:p) do
-        Faker::Lorem.paragraphs(number: 1).first
-      end
-      content_tag(:p) do
-        Faker::Lorem.paragraphs(number: 1).first
+      content_tag(:div, class: 'mt-2') do
+        "Additional content can be added via the block"
       end
     end
   end

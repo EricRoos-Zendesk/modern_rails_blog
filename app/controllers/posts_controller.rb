@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy set_post ]
+  before_action :set_post, only: %i[ show edit update destroy applaud applauds ]
 
   # GET /posts or /posts.json
   def index
@@ -11,7 +11,7 @@ class PostsController < ApplicationController
   def show
     respond_to do |format|
       format.html do
-        render Pages::PostPageComponent.new(post: @post)
+        render Pages::PostPageComponent.new(post: @post, current_user: current_user)
       end
       format.turbo_stream
     end
@@ -65,17 +65,28 @@ class PostsController < ApplicationController
     end
   end
 
-  def assign_vote
-    @post.vote_by voter: current_user, vote: vote_param if vote_param
+  def applauds
+    @component = Organisms::ApplaudPostComponent.new(post: @post, applauded: current_user.liked?(@post), applauded_count: @post.get_likes.size)
     respond_to do |format|
       format.turbo_stream
+    end
+  end
+
+  def applaud
+    @post.vote_by voter: current_user, vote: vote_param if vote_param
+    respond_to do |format|
+      format.turbo_stream do
+        @component = Organisms::ApplaudPostComponent.new(post: @post, applauded: current_user.liked?(@post), applauded_count: @post.get_likes.size)
+        render :applauds
+      end
     end
   end
 
   private
    
     def vote_param
-      return 'like' if prams[:vote] == "1" ? 'like' : 'bad'
+      return 'like' if params[:vote] == "1"
+      'bad'
     end
 
     # Use callbacks to share common setup or constraints between actions.

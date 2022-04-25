@@ -137,6 +137,8 @@ GEM
     guard-rails (0.8.1)
       guard (~> 2.11)
       guard-compat (~> 1.0)
+    heroicon (0.4.0)
+      rails (>= 5.2)
     http_parser.rb (0.8.0)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
@@ -336,6 +338,7 @@ DEPENDENCIES
   guard
   guard-livereload (~> 2.5)
   guard-rails
+  heroicon (~> 0.4.0)
   image_processing (~> 1.2)
   importmap-rails
   jbuilder

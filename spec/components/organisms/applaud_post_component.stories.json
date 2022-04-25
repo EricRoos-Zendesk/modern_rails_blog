@@ -1,0 +1,13 @@
+{
+  "title": "Organisms/Applaud Post Component",
+  "stories": [
+    {
+      "name": "post",
+      "parameters": {
+        "server": {
+          "id": "organisms/applaud_post_component/post"
+        }
+      }
+    }
+  ]
+}

@@ -90,3 +90,5 @@ gem "view_component-form", "~> 0.2.3"
 gem "rb-gravatar", "~> 1.0"
 
 gem "acts_as_votable", "~> 0.13.2"
+
+gem "heroicon", "~> 0.4.0"

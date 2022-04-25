@@ -1,4 +1,6 @@
 class Post < ApplicationRecord
+  acts_as_votable
+
   has_rich_text :content
   belongs_to :user
 

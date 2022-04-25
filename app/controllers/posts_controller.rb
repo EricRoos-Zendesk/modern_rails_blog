@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy ]
+  before_action :set_post, only: %i[ show edit update destroy set_post ]
 
   # GET /posts or /posts.json
   def index
@@ -65,7 +65,19 @@ class PostsController < ApplicationController
     end
   end
 
+  def assign_vote
+    @post.vote_by voter: current_user, vote: vote_param if vote_param
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
   private
+   
+    def vote_param
+      return 'like' if prams[:vote] == "1" ? 'like' : 'bad'
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Rails.cache.fetch([:post, params[:id], Post.updated_at_for(params[:id])]) do

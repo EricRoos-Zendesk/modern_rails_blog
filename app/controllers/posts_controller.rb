@@ -7,6 +7,10 @@ class PostsController < ApplicationController
     render Pages::PostsPageComponent.new(posts: @posts)
   end
 
+  def recent
+
+  end
+
   # GET /posts/1 or /posts/1.json
   def show
     respond_to do |format|
@@ -66,7 +70,8 @@ class PostsController < ApplicationController
   end
 
   def applauds
-    @component = Organisms::ApplaudPostComponent.new(post: @post, applauded: current_user.liked?(@post), applauded_count: @post.get_likes.size)
+    applauded = current_user.liked?(@post)
+    @component = Organisms::ApplaudPostComponent.new(post: @post, applauded: applauded, applauded_count: @post.get_likes.size)
     respond_to do |format|
       format.turbo_stream
     end
@@ -76,8 +81,7 @@ class PostsController < ApplicationController
     @post.vote_by voter: current_user, vote: vote_param if vote_param
     respond_to do |format|
       format.turbo_stream do
-        @component = Organisms::ApplaudPostComponent.new(post: @post, applauded: current_user.liked?(@post), applauded_count: @post.get_likes.size)
-        render :applauds
+        redirect_to action: :applauds
       end
     end
   end
@@ -91,9 +95,7 @@ class PostsController < ApplicationController
 
     # Use callbacks to share common setup or constraints between actions.
     def set_post
-      @post = Rails.cache.fetch([:post, params[:id], Post.updated_at_for(params[:id])]) do
-        @post = Post.find(params[:id])
-      end
+      @post = Post.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.

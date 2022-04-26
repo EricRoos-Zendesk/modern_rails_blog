@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  include FindByCache
+
   acts_as_voter
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable

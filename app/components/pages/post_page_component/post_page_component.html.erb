@@ -9,19 +9,30 @@
   <% end %>
 
   <%= page_template.side_content do %>
-    <%= render Atoms::CardComponent.new do %>
-      <div class='grid grid-cols-1 gap-2'>
-        <div>
-          <%= render Atoms::LinkComponent.new(variant: :text, path: edit_post_path(@post), options: { class: 'text-black hover:underline' }) do %>
-            Edit Post
-          <% end %>
-        </div>
-        <div>
-          <%= render Atoms::LinkComponent.new(variant: :text, path: posts_path, options: { class: 'text-black hover:underline' }) do %>
-            Back to posts
-          <% end %>
-        </div>
+    <div class='grid grid-cols-1 gap-4'>
+      <div>
+        <%= render Atoms::CardComponent.new do %>
+          <div class='grid grid-cols-1 gap-2'>
+            <div>
+              <%= render Atoms::LinkComponent.new(variant: :text, path: edit_post_path(@post), options: { class: 'text-black hover:underline' }) do %>
+                Edit Post
+              <% end %>
+            </div>
+            <div>
+              <%= render Atoms::LinkComponent.new(variant: :text, path: posts_path, options: { class: 'text-black hover:underline' }) do %>
+                Back to posts
+              <% end %>
+            </div>
+          </div>
+        <% end %>
       </div>
-    <% end %>
+      <div>
+        <div class='mb-4 text-xl font-bold text-gray-700'>More from this author</div>
+        <%= render Atoms::CardComponent.new do %>
+          <div class='grid grid-cols-1 gap-2'>
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% end %>
 <% end %>

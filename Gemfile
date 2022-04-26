@@ -7,6 +7,7 @@ ruby "3.0.0"
 gem "rails", "~> 7.0.2", ">= 7.0.2.3"
 gem 'rack-cors'
 gem 'eventmachine', github: 'eventmachine/eventmachine'
+gem 'foreman'
 
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem "sprockets-rails"
@@ -92,3 +93,7 @@ gem "rb-gravatar", "~> 1.0"
 gem "acts_as_votable", "~> 0.13.2"
 
 gem "heroicon", "~> 0.4.0"
+
+gem "dalli", "~> 3.2"
+
+gem "redis", "~> 4.6"

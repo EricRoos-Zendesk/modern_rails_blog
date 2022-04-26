@@ -63,6 +63,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'guard-rspec', require: false
   gem "rack-livereload"
   gem 'guard'
   gem 'guard-rails', require: false

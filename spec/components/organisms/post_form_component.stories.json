@@ -1,0 +1,13 @@
+{
+  "title": "Organisms/Post Form Component",
+  "stories": [
+    {
+      "name": "post",
+      "parameters": {
+        "server": {
+          "id": "organisms/post_form_component/post"
+        }
+      }
+    }
+  ]
+}

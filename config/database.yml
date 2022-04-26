@@ -62,7 +62,7 @@ test:
   <<: *default
   database: modern_rails_blog_test
   username: postgres
-  host: db
+  host: <%= ENV.fetch('DB_HOST') { '0.0.0.0' } %>
   password: password
 
 # As with config/credentials.yml, you never want to store sensitive information,

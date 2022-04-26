@@ -14,7 +14,7 @@ module ModernRailsBlog
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 7.0
     config.view_component_storybook.stories_path = Rails.root.join("spec/components/")
-    config.web_console.permissions = '172.19.0.1'
+    #config.web_console.permissions = '172.19.0.1'
 
     # Configuration for the application, engines, and railties goes here.
     #

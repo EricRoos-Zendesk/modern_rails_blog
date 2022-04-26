@@ -14,12 +14,13 @@
         <%= render Atoms::CardComponent.new do %>
           <div class='grid grid-cols-1 gap-2'>
             <div>
-              <%= render Atoms::LinkComponent.new(variant: :text, path: edit_post_path(@post), options: { class: 'text-black hover:underline' }) do %>
-                Edit Post
+              <%= render Atoms::LinkComponent.new(variant: :text, path: edit_post_path(@post), options: { class: 'text-black hover:underline flex items-center gap-2' }) do %>
+                <%= heroicon 'pencil', options: { class: 'h-4' } %> Edit Post
               <% end %>
             </div>
             <div>
-              <%= render Atoms::LinkComponent.new(variant: :text, path: posts_path, options: { class: 'text-black hover:underline' }) do %>
+              <%= render Atoms::LinkComponent.new(variant: :text, path: posts_path, options: { class: 'text-black hover:underline flex items-center gap-2' }) do %>
+                <%= heroicon 'arrow-left', options: { class: 'h-4' } %>
                 Back to posts
               <% end %>
             </div>

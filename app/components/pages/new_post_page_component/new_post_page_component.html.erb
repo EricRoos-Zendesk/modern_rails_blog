@@ -4,18 +4,19 @@
       <div class="text-4xl font-bold text-gray-700">
         Start a new post
       </div>
-      <%= render Organisms::PostFormComponent.new(post: @post) %>
+      <turbo-frame id='new-post'>
+        <%= render Organisms::PostFormComponent.new(post: @post) %>
+      </turbo-frame>
     <% end %>
   <% end %>
 
   <%= page_template.side_content do %>
     <%= render Atoms::CardComponent.new do %>
       <div class='grid grid-cols-1 gap-2'>
-        <div>
-          <%= render Atoms::LinkComponent.new(variant: :text, path: posts_path, options: { class: 'text-black hover:underline' }) do %>
-            Back to posts
-          <% end %>
-        </div>
+        <%= render Atoms::LinkComponent.new(variant: :text, path: posts_path, options: { class: 'text-black hover:underline flex items-center gap-2' }) do %>
+          <%= heroicon 'arrow-left', options: { class: 'h-4' } %>
+          Back to posts
+        <% end %>
       </div>
     <% end %>
   <% end %>

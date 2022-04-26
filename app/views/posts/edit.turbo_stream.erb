@@ -1,0 +1,3 @@
+<%= turbo_stream.update 'edit-post' do %>
+  <%= render Organisms::PostFormComponent.new(post: @post) %>
+<% end %>

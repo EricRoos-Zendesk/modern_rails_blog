@@ -1,4 +1,10 @@
-<%= render Templates::FixedCenterCardComponent.new do %>
+<%= render Templates::FixedCenterCardComponent.new do |template| %>
+  <% template.above_matter do %>
+    <div class='mx-auto text-2xl font-bold  mb-3'>
+      Sign in
+    </div>
+    <hr class='mb-3'/>
+  <% end %>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: false }) do |f| %>
     <div class="field">
       <%= f.label :email %><br />
@@ -21,6 +27,8 @@
       <%= f.submit "Log in" %>
     </div>
   <% end %>
+
+  <hr class='my-3' />
 
   <%= render "devise/shared/links" %>
 <% end %>

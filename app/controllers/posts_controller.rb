@@ -35,7 +35,9 @@ class PostsController < ApplicationController
       if @post.save
         format.html { redirect_to post_url(@post), notice: "Post was successfully created." }
       else
-        format.html { render :new, status: :unprocessable_entity }
+        format.html do
+          render Pages::NewPostPageComponent.new(post: @post), status: :unprocessable_entity
+        end
       end
     end
   end

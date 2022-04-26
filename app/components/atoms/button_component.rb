@@ -6,8 +6,12 @@ class Atoms::ButtonComponent < ViewComponent::Base
     @options = options.merge(class: button_class)
   end
 
+  def self.button_class
+    "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium flex items-center justify-center"
+  end
+
   def button_class
-    "rounded-lg py-3 px-5 bg-blue-600 text-white font-medium flex items-center justify-center #{width_class}"
+    "#{self.class.button_class} #{width_class}"
   end
 
   private

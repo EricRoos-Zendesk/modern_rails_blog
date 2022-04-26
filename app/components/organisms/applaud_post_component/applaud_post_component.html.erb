@@ -1,9 +1,9 @@
 <%= button_to applaud_post_path(@post, method: :post,  vote: (@applauded ? "0" : "1")), class: 'flex rounded-full items-center gap-2' do %>
   <% if @applauded %>
-    <%= heroicon "fire", variant: :solid, options: { class: 'h-8 text-red-700 hover:text-black' }%>
+    <%= heroicon "fire", variant: :solid, options: { class: 'h-8 text-red-700' }%>
     <div><%= @applauded_count %></div>
   <% else %>
-    <%= heroicon "fire", variant: :outline, options: { class: 'h-8' }%>
+    <%= heroicon "fire", variant: :outline, options: { class: 'h-8 hover:text-red-600 transition-all' }%>
     <div>Applaud <small>(<%= @applauded_count %>)</small></div>
   <% end %>
 <% end %>

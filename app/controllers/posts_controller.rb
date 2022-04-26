@@ -7,10 +7,6 @@ class PostsController < ApplicationController
     render Pages::PostsPageComponent.new(posts: @posts)
   end
 
-  def recent
-
-  end
-
   # GET /posts/1 or /posts/1.json
   def show
     respond_to do |format|

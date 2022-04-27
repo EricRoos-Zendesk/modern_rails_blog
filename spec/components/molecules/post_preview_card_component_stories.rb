@@ -6,7 +6,9 @@ class Molecules::PostPreviewCardComponentStories < ViewComponent::Storybook::Sto
       preview_content: Faker::Lorem.sentences(number: 3).join(" "),
       read_more_href: '#',
       author_name: Faker::Name.name,
-      author_image_url: 'https://i.pravatar.cc/300'
+      author_image_url: 'https://i.pravatar.cc/300',
+      post_author_id: 1,
+      author_detail_href: '#'
     ) do
       content_tag(:p) do
         Faker::Lorem.paragraphs(number: 1).first

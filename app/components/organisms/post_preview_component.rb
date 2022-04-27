@@ -13,6 +13,8 @@ class Organisms::PostPreviewComponent < ViewComponent::Base
       read_more_href: url_for(@post),
       author_name: @post.user.email,
       author_image_url: Gravatar.src(@post.user.email),
+      post_author_id: @post.user.id,
+      author_detail_href: user_path(@post.user, format: :turbo_stream),
       &block)
   end
 

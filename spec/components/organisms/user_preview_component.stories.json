@@ -1,0 +1,13 @@
+{
+  "title": "Organisms/User Preview Component",
+  "stories": [
+    {
+      "name": "user_preview",
+      "parameters": {
+        "server": {
+          "id": "organisms/user_preview_component/user_preview"
+        }
+      }
+    }
+  ]
+}

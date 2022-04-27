@@ -14,7 +14,9 @@ class Pages::PostsPageComponent < ViewComponent::Base
       preview_content: "Loading",
       read_more_href: '#',
       author_name: "Loading",
-      author_image_url: ''
+      author_image_url: '',
+      post_author_id: '',
+      author_detail_href: '#'
     )
   end
 end

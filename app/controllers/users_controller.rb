@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     respond_to do |format|
       format.turbo_stream {
         render turbo_stream: [
-          turbo_stream.update(dom_id(@user), "hello")
+          turbo_stream.update(request.headers['Turbo-Frame'], @user.email)
         ]
       }
     end

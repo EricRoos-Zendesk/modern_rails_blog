@@ -2,7 +2,7 @@
   <div class='grid grid-col-1 gap-2'>
     <% @users.each do |user| %>
       <%= link_to '#' do %>
-        <%= render Atoms::UserNamePlateComponent.new(name: user.email, image_url: Gravatar.src(user.email)) %>
+        <%= render Atoms::UserNamePlateComponent.new(name: user.email, image_url: Gravatar.src(user.email), detail_href: user_path(user, format: :turbo_stream), detail_turbo_frame_id: "author_#{dom_id(user)}") %>
       <% end %>
     <% end %>
   </div>

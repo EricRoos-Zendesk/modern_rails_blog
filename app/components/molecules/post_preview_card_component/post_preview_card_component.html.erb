@@ -15,6 +15,6 @@
     <%= render Atoms::LinkComponent.new(path: @read_more_href) do %>
       Read More
     <% end %>
-    <%= render Atoms::UserNamePlateComponent.new(name: @author_name, image_url: @author_image_url) %>
+    <%= render Atoms::UserNamePlateComponent.new(name: @author_name, image_url: @author_image_url, detail_href: @author_detail_href, detail_turbo_frame_id: "user_#{@post_author_id}") %>
   </div>
 <% end %>

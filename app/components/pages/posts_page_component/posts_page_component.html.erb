@@ -2,7 +2,7 @@
   <% page_template.main_content do %>
     <div>
       <div class="flex items-center justify-between">
-        <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Post</h1>
+        <h1 class="text-xl font-bold text-gray-700 md:text-2xl">Posts</h1>
         <div>
           <select class="w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50">
             <option>Latest</option>
@@ -10,7 +10,7 @@
           </select>
         </div>
       </div>
-      <div>
+      <div class='lg:hidden'>
         <%= render Atoms::LinkComponent.new(path: new_post_path, variant: :button, options: { class: 'text-sm' }) do %>
           New Post
         <% end %>
@@ -26,7 +26,15 @@
   <% end %>
 
   <% page_template.side_content do %>
-    <div class='px-8'>
+    <div class='px-8 hide: lg:block'>
+      <%= render Atoms::CardComponent.new do %>
+        <%= render Atoms::LinkComponent.new(path: new_post_path) do %>
+          New Post
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class='px-8 md:mt-10'>
       <div class='mb-4 text-xl font-bold text-gray-700'>Authors</div>
       <turbo-frame id='authors' src="<%= authors_path(format: :turbo_stream) %>">
         <%= render Atoms::CardComponent.new do %>

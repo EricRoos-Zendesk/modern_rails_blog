@@ -1,18 +1,20 @@
 <%= render Atoms::CardComponent.new do %>
-  <div class="flex items-center justify-between">
-    <span class="font-light text-gray-600"><%= @post_date.present? ? @post_date : 'N/A'  %></span>
-    <a href="#" class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">Laravel</a>
-  </div>
-  <div class="mt-2">
-    <div class="text-4xl font-bold text-gray-700">
+  <div class='prose lg:prose-lg xl:prose-xl mx-auto'>
+    <div class="flex items-center justify-between">
+      <span class="font-light text-gray-600"><%= @post_date.present? ? @post_date : 'N/A'  %></span>
+      <div class="flex items-center justify-between">
+        <%= render Atoms::UserNamePlateComponent.new(name: @author_name, image_url: @author_image_url) %>
+      </div>
+    </div>
+    <h1>
       <%= @post_title %>
-    </div>
-    <div class="flex items-center justify-between mt-4">
-      <%= render Atoms::UserNamePlateComponent.new(name: @author_name, image_url: @author_image_url) %>
-    </div>
-    <div class="mt-4">
-      <%= @post_content %>
-      <%= content %>
+    </h1>
+    <div class="">
+      <hr />
+      <div class="">
+        <%= @post_content %>
+        <%= content %>
+      </div>
     </div>
   </div>
 <% end %>

@@ -1,13 +1,12 @@
-<%= render Atoms::CardComponent.new do %>
+<%= render Atoms::CardComponent.new(html_class: 'prose lg:prose-lg xl:prose-xl prose-zinc')  do %>
   <div class="flex items-center justify-between">
-    <span class="font-light text-gray-600"><%= @post_date %></span>
-    <a href="#" class="px-2 py-1 font-bold text-gray-100 bg-gray-600 rounded hover:bg-gray-500">Laravel</a>
+    <span class="font-light"><%= @post_date %></span>
   </div>
-  <div class="mt-2">
-    <a href="<%= @read_more_href %>" class="text-2xl font-bold text-gray-700 hover:underline">
-      <%= @post_title %>
+  <div class="">
+    <a href="<%= @read_more_href %>">
+      <h2><%= @post_title %></h2>
     </a>
-    <div class="mt-2 text-gray-600">
+    <div class="">
       <%= content %>
     </div>
   </div>

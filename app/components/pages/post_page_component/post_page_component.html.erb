@@ -1,6 +1,7 @@
 <%= render Templates::TwoColumnComponent.new do |page_template| %>
   <%= page_template.main_content do %>
     <%= render Organisms::PostComponent.new(post: @post) do %> 
+      <hr />
       <div class='mt-5'>
         <turbo-frame id="<%= "applauds_#{dom_id(@post)}" %>" src="<%=applauds_post_path(@post, format: :turbo_stream)%>">
         </turbo-frame>
@@ -13,17 +14,15 @@
       <div>
         <%= render Atoms::CardComponent.new do %>
           <div class='grid grid-cols-1 gap-2'>
-            <div>
+            <% if PostPolicy.new(@current_user, @post).edit? %>
               <%= render Atoms::LinkComponent.new(variant: :text, path: edit_post_path(@post), options: { class: 'text-black hover:underline flex items-center gap-2' }) do %>
                 <%= heroicon 'pencil', options: { class: 'h-4' } %> Edit Post
               <% end %>
-            </div>
-            <div>
-              <%= render Atoms::LinkComponent.new(variant: :text, path: posts_path, options: { class: 'text-black hover:underline flex items-center gap-2' }) do %>
-                <%= heroicon 'arrow-left', options: { class: 'h-4' } %>
-                Back to posts
-              <% end %>
-            </div>
+            <% end %>
+            <%= render Atoms::LinkComponent.new(variant: :text, path: posts_path, options: { class: 'text-black hover:underline flex items-center gap-2' }) do %>
+              <%= heroicon 'arrow-left', options: { class: 'h-4' } %>
+              Back to posts
+            <% end %>
           </div>
         <% end %>
       </div>

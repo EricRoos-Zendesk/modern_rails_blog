@@ -99,3 +99,5 @@ gem "heroicon", "~> 0.4.0"
 gem "dalli", "~> 3.2"
 
 gem "redis", "~> 4.6"
+
+gem "pundit", "~> 2.2"

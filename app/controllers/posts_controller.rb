@@ -3,7 +3,8 @@ class PostsController < ApplicationController
 
   # GET /posts or /posts.json
   def index
-    @posts = Post.all.select(:id).order(posted_at: :desc)
+    authorize Post
+    @posts = policy_scope(Post).order(posted_at: :desc)
     render Pages::PostsPageComponent.new(posts: @posts)
   end
 
@@ -19,6 +20,7 @@ class PostsController < ApplicationController
 
   # GET /posts/new
   def new
+    authorize Post
     render Pages::NewPostPageComponent.new(post: Post.new)
   end
 
@@ -30,6 +32,7 @@ class PostsController < ApplicationController
   # POST /posts or /posts.json
   def create
     @post = Post.new(post_params.merge(posted_at: DateTime.now, user: current_user))
+    authorize @post
 
     respond_to do |format|
       if @post.save
@@ -58,7 +61,6 @@ class PostsController < ApplicationController
   # DELETE /posts/1 or /posts/1.json
   def destroy
     @post.destroy
-
     respond_to do |format|
       format.html { redirect_to posts_url, notice: "Post was successfully destroyed." }
     end
@@ -66,7 +68,12 @@ class PostsController < ApplicationController
 
   def applauds
     applauded = current_user.liked?(@post)
-    @component = Organisms::ApplaudPostComponent.new(post: @post, applauded: applauded, applauded_count: @post.get_likes.size)
+    @component = Organisms::ApplaudPostComponent.new(
+      post: @post,
+      applauded: applauded,
+      applauded_count: @post.get_likes.size,
+      enabled: policy(@post).applaud?
+    )
     respond_to do |format|
       format.turbo_stream
     end
@@ -91,6 +98,7 @@ class PostsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_post
       @post = Post.find(params[:id])
+      authorize @post
     end
 
     # Only allow a list of trusted parameters through.

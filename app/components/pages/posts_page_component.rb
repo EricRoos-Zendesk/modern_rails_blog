@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Pages::PostsPageComponent < ViewComponent::Base
+  include Heroicon::Engine.helpers
+
   def initialize(posts:)
     @posts = posts
   end

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :authors, only: [ :index ]
+  resources :users, only: [ :show ]
   resources :posts do
     member do
       get :applauds

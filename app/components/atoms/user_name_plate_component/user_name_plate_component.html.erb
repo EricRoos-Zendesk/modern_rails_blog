@@ -1,6 +1,15 @@
-<div>
+<div class='flex relative' data-controller="popover" data-action="mouseover->popover#show mouseout->popover#hide">
   <a href="#" class="flex items-center">
     <img src="<%= @image_url %>" alt="avatar" class="hidden object-cover w-10 h-10 mr-4 rounded-full sm:block bg-white">
     <span class="font-bold text-gray-700 hover:underline"><%= @name %></span>
   </a>
+  <template data-popover-target="content">
+    <div data-popover-target="card" class="max-w-sm rounded shadow-lg bg-white absolute" style="bottom: 2rem; width: max-content;">
+      <div class="px-6 py-4 flex">
+        <turbo-frame id="<%= @detail_turbo_frame_id %>" src="<%= @detail_href %>" loading='lazy'>
+          Loading
+        </turbo-frame>
+      </div>
+    </div>
+  </template>
 </div>

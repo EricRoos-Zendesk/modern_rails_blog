@@ -1,4 +1,5 @@
 import { Application } from "@hotwired/stimulus"
+import Popover from 'stimulus-popover'
 
 const application = Application.start()
 

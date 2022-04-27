@@ -3,7 +3,7 @@
     <div class="flex items-center justify-between">
       <span class="font-light text-gray-600"><%= @post_date.present? ? @post_date : 'N/A'  %></span>
       <div class="flex items-center justify-between">
-        <%= render Atoms::UserNamePlateComponent.new(name: @author_name, image_url: @author_image_url) %>
+        <%= render Atoms::UserNamePlateComponent.new(name: @author_name, image_url: @author_image_url, detail_href: @turbo_frame_detail_href, detail_turbo_frame_id: "user_#{@post_author_id}" ) %>
       </div>
     </div>
     <h1>

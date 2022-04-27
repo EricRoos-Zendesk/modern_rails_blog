@@ -1,17 +1,20 @@
-<%= render Atoms::CardComponent.new(html_class: 'prose lg:prose-lg xl:prose-xl prose-zinc')  do %>
-  <div class="flex items-center justify-between">
+<%= render Atoms::CardComponent.new(html_class: '')  do %>
+  <div class="flex items-center justify-between mb-4">
     <span class="font-light"><%= @post_date %></span>
   </div>
-  <div class="">
-    <a href="<%= @read_more_href %>">
-      <h2><%= @post_title %></h2>
-    </a>
-    <div class="">
+  <article class="prose lg:prose-lg xl:prose-xl prose-zinc">
+    <h2>
+      <%= @post_title %>
+    </h2>
+    <p>
       <%= content %>
-    </div>
-  </div>
+    </p>
+  </article>
+  <hr class='my-4'/>
   <div class="flex items-center justify-between mt-4">
-    <a href="<%= @read_more_href %>" class="text-blue-500 hover:underline">Read more</a>
+    <%= render Atoms::LinkComponent.new(path: @read_more_href) do %>
+      Read More
+    <% end %>
     <%= render Atoms::UserNamePlateComponent.new(name: @author_name, image_url: @author_image_url) %>
   </div>
 <% end %>

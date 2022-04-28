@@ -1,0 +1,3 @@
+<%= turbo_stream.update(request.headers['Turbo-Frame']) do %>
+  <%= render Organisms::UserPreviewComponent.new(user: @user) %>
+<% end %>

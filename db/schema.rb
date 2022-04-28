@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_04_25_141843) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_28_143715) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_04_25_141843) do
     t.datetime "updated_at", null: false
     t.datetime "posted_at"
     t.bigint "user_id", null: false
+    t.integer "cached_votes_total", default: 0
+    t.integer "cached_votes_score", default: 0
+    t.integer "cached_votes_up", default: 0
+    t.integer "cached_votes_down", default: 0
+    t.integer "cached_weighted_score", default: 0
+    t.integer "cached_weighted_total", default: 0
+    t.float "cached_weighted_average", default: 0.0
     t.index ["user_id"], name: "index_posts_on_user_id"
   end
 

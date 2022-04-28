@@ -1,1 +1,12 @@
-<div>Add Organisms::UserPreview template here</div>
+<% cache [:preview, @user ] do %>
+  <div class='flex gap-2 p-4 border border-solid border-slate'>
+    <div>
+      <img src='<%= Gravatar.src(@user.email) %>' />
+    </div>
+    <div>
+      <div class='font-semibold'><%= @user.email %></div>
+      <div class='flex items-center gap-2 text-sm text-light'><%= heroicon('document-text', options: { class: 'h-4' }) %> <%= @user.posts.count %> posts</div>
+      <div class='flex items-center gap-2 text-sm text-light'><%= heroicon('fire', options: { class: 'h-4' }) %> <%= @user.received_applauds_count %> applauds</div>
+    </div>
+  </div>
+<% end %>

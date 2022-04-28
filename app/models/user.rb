@@ -8,4 +8,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :posts
 
+  def received_applauds_count
+    posts.sum(:cached_votes_up)
+  end
 end

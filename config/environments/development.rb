@@ -1,7 +1,8 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
-  config.server_timing = false
+  config.log_tags = [ :request_id ]
+  #config.server_timing = false
   config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
   Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do

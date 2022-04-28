@@ -1,19 +1,21 @@
 <%= render Atoms::CardComponent.new do %>
-  <div class='prose lg:prose-lg xl:prose-xl mx-auto'>
+  <div>
     <div class="flex items-center justify-between">
       <span class="font-light text-gray-600"><%= @post_date.present? ? @post_date : 'N/A'  %></span>
       <div class="flex items-center justify-between">
         <%= render Atoms::UserNamePlateComponent.new(name: @author_name, image_url: @author_image_url, detail_href: @turbo_frame_detail_href, detail_turbo_frame_id: "user_#{@post_author_id}" ) %>
       </div>
     </div>
-    <h1>
-      <%= @post_title %>
-    </h1>
-    <div class="">
-      <hr />
+    <div class='prose lg:prose-lg xl:prose-xl mx-auto'>
+      <h1>
+        <%= @post_title %>
+      </h1>
       <div class="">
-        <%= @post_content %>
-        <%= content %>
+        <hr />
+        <div class="">
+          <%= @post_content %>
+          <%= content %>
+        </div>
       </div>
     </div>
   </div>

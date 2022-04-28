@@ -6,11 +6,7 @@ class UsersController < ApplicationController
     authorize @user
 
     respond_to do |format|
-      format.turbo_stream {
-        render turbo_stream: [
-          turbo_stream.update(request.headers['Turbo-Frame'], @user.email)
-        ]
-      }
+      format.turbo_stream
     end
   end
 end

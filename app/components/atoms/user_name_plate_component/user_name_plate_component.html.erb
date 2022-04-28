@@ -5,11 +5,9 @@
   </a>
   <template data-popover-target="content">
     <div data-popover-target="card" class="bordere border-solid border-gray-300 max-w-sm rounded shadow-lg bg-white absolute" style="bottom: 2rem; width: max-content;">
-      <div class="px-6 py-4 flex">
-        <turbo-frame id="<%= @detail_turbo_frame_id %>" src="<%= @detail_href %>" loading='lazy'>
-          Loading
-        </turbo-frame>
-      </div>
+      <turbo-frame id="<%= @detail_turbo_frame_id %>" src="<%= @detail_href %>" loading='lazy'>
+        Loading
+      </turbo-frame>
     </div>
   </template>
 </div>

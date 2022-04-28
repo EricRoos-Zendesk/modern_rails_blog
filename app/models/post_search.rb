@@ -33,6 +33,6 @@ class PostSearch
   end
 
   def attach_limit
-    @search = @search.limit(limit || 10)
+    @search = @search.limit(limit || 100)
   end
 end

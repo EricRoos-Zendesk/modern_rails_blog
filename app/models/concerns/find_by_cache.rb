@@ -5,12 +5,17 @@ module FindByCache
   included do
     after_commit :commit_to_cache
 
-    def self.find(id)
+    def self.updated_at_for(id)
       last_touched = Rails.cache.fetch [self, id, :updated_at] do
         where(id: id).limit(1).pluck(:updated_at).first
       end
-      Rails.cache.fetch([self, id, last_touched]) do
-        where(id: id).first
+    end
+
+    def self.find(id)
+      Rails.cache.fetch([self, id, updated_at_for(id)]) do
+        super(id).tap do |resource|
+          resource.commit_to_cache
+        end
       end
     end
   end

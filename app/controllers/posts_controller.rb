@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: %i[ show edit update destroy applaud applauds ]
+  before_action :set_post, only: %i[ edit update destroy applaud applauds ]
 
   # GET /posts or /posts.json
   def index
@@ -10,6 +10,9 @@ class PostsController < ApplicationController
 
   # GET /posts/1 or /posts/1.json
   def show
+    @post = Post.find(params[:id])
+    authorize @post
+
     respond_to do |format|
       format.html do
         render Pages::PostPageComponent.new(post: @post, current_user: current_user)

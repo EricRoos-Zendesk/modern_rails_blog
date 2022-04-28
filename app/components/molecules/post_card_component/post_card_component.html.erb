@@ -4,7 +4,9 @@
     <h1>
       <%= @post_title %>
     </h1>
-    By: <%= @author_name %>
+    By: <%= render Atoms::LinkComponent.new(path: '#') do %>
+      <%= @author_name %>
+    <% end %>
     <div class="">
       <hr />
       <div class="">

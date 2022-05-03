@@ -8,7 +8,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    @user.present?
   end
 
   def new?
@@ -32,6 +32,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def applaud?
+    return false unless @user.present?
     @record.user != @user
   end
 

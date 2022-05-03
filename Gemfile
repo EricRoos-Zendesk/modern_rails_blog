@@ -101,3 +101,5 @@ gem "dalli", "~> 3.2"
 gem "redis", "~> 4.6"
 
 gem "pundit", "~> 2.2"
+
+gem "rolify", "~> 6.0"

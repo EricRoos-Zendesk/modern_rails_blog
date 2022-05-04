@@ -11,9 +11,11 @@
         </div>
       </div>
       <div class='lg:hidden'>
-        <%= render Atoms::LinkComponent.new(path: new_post_path, variant: :button, options: { class: 'text-sm flex items-center gap-2' }) do %>
-          <%= heroicon('document-text', options: { class: 'h-4' }) %>
-          New Post
+        <% if PostPolicy.new(@current_user, nil).create? %>
+          <%= render Atoms::LinkComponent.new(path: new_post_path, variant: :button, options: { class: 'text-sm flex items-center gap-2' }) do %>
+            <%= heroicon('document-text', options: { class: 'h-4' }) %>
+            New Post
+          <% end %>
         <% end %>
       </div>
     </div>
@@ -29,9 +31,11 @@
   <% page_template.side_content do %>
     <div class='px-8 hide: lg:block'>
       <%= render Atoms::CardComponent.new do %>
-        <%= render Atoms::LinkComponent.new(path: new_post_path, options: { class: 'flex items-center gap-2' }) do %>
-          <%= heroicon('document-text', options: { class: 'h-4' }) %>
-          New Post
+        <% if PostPolicy.new(@current_user, nil).create? %>
+          <%= render Atoms::LinkComponent.new(path: new_post_path, options: { class: 'flex items-center gap-2' }) do %>
+            <%= heroicon('document-text', options: { class: 'h-4' }) %>
+            New Post
+          <% end %>
         <% end %>
       <% end %>
     </div>

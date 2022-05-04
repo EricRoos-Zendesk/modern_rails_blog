@@ -6,7 +6,7 @@ class PostsController < ApplicationController
   def index
     authorize Post
     @posts = policy_scope(Post).merge(PostSearch.new.hits).order(posted_at: :desc)
-    render Pages::PostsPageComponent.new(posts: @posts)
+    render Pages::PostsPageComponent.new(posts: @posts, current_user: current_user)
   end
 
   # GET /posts/1 or /posts/1.json

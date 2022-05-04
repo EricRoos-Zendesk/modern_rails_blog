@@ -8,15 +8,17 @@ class PostPolicy < ApplicationPolicy
   end
 
   def create?
-    @user.present?
+    return unless @user
+    @user.has_role?(Role::AUTHOR)
   end
 
   def new?
-    create?
+    create? 
   end
 
   def update?
-    @record.user == @user
+    return false unless @user
+    @record.user == @user || @user.has_role?(Role::ADMIN)|| @user.has_role?(Role::MODERATOR)
   end
 
   def edit?
@@ -24,7 +26,7 @@ class PostPolicy < ApplicationPolicy
   end
 
   def destroy?
-    @record.user == @user
+    update?
   end
 
   def applauds?

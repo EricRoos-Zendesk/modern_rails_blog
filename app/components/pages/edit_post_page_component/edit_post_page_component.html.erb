@@ -1,9 +1,11 @@
 <%= render Templates::TwoColumnComponent.new do |page_template| %>
   <%= page_template.main_content do %>
     <%= render Atoms::CardComponent.new do %>
-      <div class="text-4xl font-bold text-gray-700">
-        Edit Post
-      </div>
+      <% if PostPolicy.new(@current_user, @post).edit? %>
+        <div class="text-4xl font-bold text-gray-700">
+          Edit Post
+        </div>
+      <% end %>
       <turbo-frame id='edit-post' target="_top">
         <%= render Organisms::PostFormComponent.new(post: @post) %>
       </turbo-frame>

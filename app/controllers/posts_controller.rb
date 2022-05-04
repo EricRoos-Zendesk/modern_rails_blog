@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [ :index, :show, :applauds ]
   before_action :set_post, only: %i[ edit update destroy applaud applauds ]
 
   # GET /posts or /posts.json
@@ -70,7 +71,8 @@ class PostsController < ApplicationController
   end
 
   def applauds
-    applauded = current_user.liked?(@post)
+    applauded = false
+    applauded = current_user.liked?(@post) if current_user
     @component = Organisms::ApplaudPostComponent.new(
       post: @post,
       applauded: applauded,

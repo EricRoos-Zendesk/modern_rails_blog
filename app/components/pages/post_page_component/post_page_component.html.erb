@@ -5,7 +5,7 @@
         <%= render Organisms::PostComponent.new(post: @post) do %> 
           <hr />
           <div class='mt-5'>
-            <turbo-frame id="<%= "applauds_#{dom_id(@post)}" %>" src="<%=applauds_post_path(@post, format: :turbo_stream)%>">
+            <turbo-frame id="<%= "applauds_#{dom_id(@post)}" %>" src="<%=applauds_post_path(@post, format: :turbo_stream)%>" target='_top'>
             </turbo-frame>
           </div>
         <% end %>

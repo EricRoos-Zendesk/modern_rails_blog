@@ -1,9 +1,16 @@
 <%= button_to applaud_post_path(@post, method: :post,  vote: (@applauded ? "0" : "1")), class: 'flex rounded-full items-center gap-2', disabled: !@enabled do %>
-  <% if @applauded || !@enabled%>
+  <% if @applauded %>
     <%= heroicon "fire", variant: :solid, options: { class: 'h-8 text-red-700' }%>
     <div><%= @applauded_count %></div>
   <% else %>
-    <%= heroicon "fire", variant: :outline, options: { class: 'h-8 hover:text-red-600 transition-all' }%>
-    <div>Applaud <small>(<%= @applauded_count %>)</small></div>
+    <%= heroicon "fire", variant: :outline, options: { class: "h-8 #{ @enabled ? 'hover:text-red-600' : ''} transition-all" }%>
+    <% if @enabled %>
+      <div>Applaud <small>(<%= @applauded_count %>)</small></div>
+    <% else %>
+      <div><%= @applauded_count %></div>
+      <%= render Atoms::LinkComponent.new(path: new_user_session_path) do %>
+        Sign in to send applause
+      <% end %>
+    <% end %>
   <% end %>
 <% end %>

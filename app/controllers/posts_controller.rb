@@ -1,5 +1,4 @@
 class PostsController < ApplicationController
-  skip_before_action :authenticate_user!, only: [ :index, :show, :applauds ]
   before_action :set_post, only: %i[ edit update destroy applaud applauds ]
 
   # GET /posts or /posts.json

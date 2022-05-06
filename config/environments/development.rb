@@ -1,9 +1,20 @@
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
+  config.hosts << "blog.local"
+  config.hosts << /.*\.blog\.local/
+
   config.log_tags = [ :request_id ]
   #config.server_timing = false
-  config.middleware.insert_after ActionDispatch::Static, Rack::LiveReload
+
+  config.middleware.use(Rack::LiveReload,
+    host: '127.0.0.1',
+    min_delay: 500,    # default 1000
+    max_delay: 10_000, # default 60_000
+    #live_reload_port: 56789,  # default 35729
+    live_reload_scheme: 'ws', # default ws, use wss for ssl
+    ignore: [ %r{dont/modify\.html$} ]
+  )
   Rails.application.config.middleware.insert_before 0, Rack::Cors do
     allow do
       origins '*'
@@ -80,5 +91,5 @@ Rails.application.configure do
   # Uncomment if you wish to allow Action Cable access from any origin.
   # config.action_cable.disable_request_forgery_protection = true
   #config.file_watcher = ActiveSupport::FileUpdateChecker
-  config.action_controller.asset_host =  'http://0.0.0.0:3000'
+  config.action_controller.asset_host =  'https://blog.local:8080'
 end

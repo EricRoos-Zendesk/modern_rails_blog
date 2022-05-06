@@ -11,4 +11,8 @@ class Molecules::PostPreviewCardComponent < ViewComponent::Base
     @post_author_id = post_author_id
     @author_detail_href = author_detail_href
   end
+
+  def detail_turbo_frame_id
+    "user_#{@post_author_id}_#{SecureRandom.hex(12)}"
+  end 
 end

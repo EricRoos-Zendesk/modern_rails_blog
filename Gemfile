@@ -64,10 +64,12 @@ end
 
 group :development do
   gem 'guard-rspec', require: false
-  gem "rack-livereload"
   gem 'guard'
   gem 'guard-rails', require: false
-  gem 'guard-livereload', '~> 2.5', require: false
+  gem 'guard-livereload', '~> 2.5.2'
+  gem 'rack-livereload', github: 'jaredmdobson/rack-livereload'
+
+
   # Use console on exceptions pages [https://github.com/rails/web-console]
   gem "web-console"
 

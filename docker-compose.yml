@@ -1,5 +1,6 @@
 version: "3.9"
 services:
+
   redis:
     image: redis
     ports:
@@ -13,15 +14,11 @@ services:
     ports:
       - "5432:5432"
   web:
-    platform: linux/amd64
-    build: .
-    tty: true
-    command: bash -c "rm -f tmp/pids/server.pid && foreman start"
-    volumes:
-      - .:/modern_rails_blog
+    image: nginx
     ports:
-      - "3000:3000"
-      - "35729:35279"
-      - "40691:40691"
-    depends_on:
-      - db
+      - "8080:443"
+    volumes:
+      - ./dev_web/nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./dev_web/certs/nginx-selfsigned.crt:/etc/ssl/certs/example.com-rapidssl.crt
+      - ./dev_web/certs/nginx-selfsigned.key:/etc/ssl/private/example.com-rapidssl.key
+
